@@ -4,6 +4,8 @@
   "homepage": "https://erlonl.github.io/nlp-front",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.15.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -15,6 +17,8 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
+    "react-form-control": "^1.0.14",
+    "react-radio-group": "^3.0.3",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -46,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-radio-group": "^3.0.7",
     "gh-pages": "^6.1.0"
   }
 }
