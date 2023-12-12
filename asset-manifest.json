@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nlp-front/static/css/main.46dc377f.css",
-    "main.js": "/nlp-front/static/js/main.b03fdfb2.js",
+    "main.css": "/nlp-front/static/css/main.6f9c3082.css",
+    "main.js": "/nlp-front/static/js/main.e9e19309.js",
     "static/js/787.40fe76fb.chunk.js": "/nlp-front/static/js/787.40fe76fb.chunk.js",
     "index.html": "/nlp-front/index.html",
-    "main.46dc377f.css.map": "/nlp-front/static/css/main.46dc377f.css.map",
-    "main.b03fdfb2.js.map": "/nlp-front/static/js/main.b03fdfb2.js.map",
+    "main.6f9c3082.css.map": "/nlp-front/static/css/main.6f9c3082.css.map",
+    "main.e9e19309.js.map": "/nlp-front/static/js/main.e9e19309.js.map",
     "787.40fe76fb.chunk.js.map": "/nlp-front/static/js/787.40fe76fb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.46dc377f.css",
-    "static/js/main.b03fdfb2.js"
+    "static/css/main.6f9c3082.css",
+    "static/js/main.e9e19309.js"
   ]
 }
