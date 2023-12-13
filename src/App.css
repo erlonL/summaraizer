@@ -73,3 +73,16 @@ body {
   flex-direction: row;
   display: flex;
 }
+
+/* vertical screens */
+@media only screen and (max-width: 768px) {
+  .Body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mainForm textarea {
+    max-width: 100%;
+  }
+}

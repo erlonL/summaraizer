@@ -36,7 +36,7 @@ function App() {
           </div>
 
           <div className='sentencesArea' style={{flexDirection: 'row', display: 'flex'}}>
-            <label>Number of Sentences</label>
+            <label>Sentences</label>
             <NumberTextarea style={{width: '50%', height: '50px'}}/>
           </div>
 
