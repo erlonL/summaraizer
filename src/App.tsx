@@ -71,16 +71,16 @@ function App() {
         }
 
         const data = {
+          "cleared":false,
           'data': [
             selectedMethod,
             selectedLanguage,
             sentenceNumber,
             documentType, // URL or text
             textareacontent
-          ]/*, */
-          // "cleared":false,
-          // "example_id":null,
-          // "session_hash":""
+          ],
+          "example_id":null,
+          "session_hash":"cb1l3gk9k7s"
         }
 
         const json = JSON.stringify(data);
