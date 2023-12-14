@@ -35,7 +35,6 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  
 }
 
 .mainForm {
@@ -59,6 +58,18 @@ body {
   flex-direction: column;
   margin: 25px;
   color: white;
+  background-color: greenyellow;
+  align-items: flex-start;
+  border: black;
+  border-radius: 2%;
+}
+
+.OutputSide {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  color: white;
+  background-color: greenyellow;
   align-items: flex-start;
   border: black;
   border-radius: 2%;
@@ -73,6 +84,23 @@ body {
   flex-direction: row;
   display: flex;
 }
+
+.typeRadio {
+  background-color: #ddd;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.typeRadio input {
+  margin-right: 5px;
+  margin-left: 5px;
+
+}
+
+
 
 /* vertical screens */
 @media only screen and (max-width: 768px) {

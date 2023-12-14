@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 const DocumentArea = () => {
@@ -23,6 +22,7 @@ const DocumentArea = () => {
     };
 
     const handleSubmitClick = () => {
+        
         console.log(textareacontent);
     }
 
