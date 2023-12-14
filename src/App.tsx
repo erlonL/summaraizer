@@ -1,17 +1,8 @@
-import React, { useState, useRef, useEffect, HTMLInputTypeAttribute } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 // import DocumentArea from './components/documentArea';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { RadioGroup, Radio } from 'react-radio-group';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-
-import axios from 'axios';
-// import LanguageDropdown from './components/LanguageDropdown';
-// import NumberTextarea from './components/NumberTextarea';
-// import { FormControlLabel } from '@material-ui/core';
 
 function App() {
     const [selectedMethod, setMethod] = useState('');
@@ -31,7 +22,7 @@ function App() {
 
     useEffect(() => {
         if(textareaRef.current){
-            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = '20vh';
             textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
         }
 
@@ -43,8 +34,8 @@ function App() {
 
     useEffect(() => {
         if(outputTextRef.current){
-            outputTextRef.current.style.height = 'auto';
-            outputTextRef.current.style.height = `${outputTextRef.current.scrollHeight}px`;
+            outputTextRef.current.style.height = '5vh';
+            outputTextRef.current.style.height = `${outputTextRef.current?.scrollHeight}px`;
         }
     }, [outputText]);
 
@@ -74,6 +65,11 @@ function App() {
     };
 
     const handleSubmitClick = () => {
+        if(textareacontent === ''){
+          console.log('Error: empty input');
+          return;
+        }
+
         const data = {
           'data': [
             selectedMethod,
@@ -81,28 +77,40 @@ function App() {
             sentenceNumber,
             documentType, // URL or text
             textareacontent
-          ],
-          "cleared":false,
-          "example_id":null,
-          "session_hash":""
+          ]/*, */
+          // "cleared":false,
+          // "example_id":null,
+          // "session_hash":""
         }
 
         const json = JSON.stringify(data);
 
         console.log(json);
 
-        const response = window.fetch('https://issam9-sumy-space.hf.space/api/predict/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: json
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Success:', data.data[0]);
-          setOutputText(data.data[0]);
-        })
+        try{
+            fetch('https://issam9-sumy-space.hf.space/api/predict/', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: json
+            })
+            .then(response => response.json())
+            .then(
+              data => {
+                if(data.data[0] === undefined){
+                  console.log('Error:', data);
+                  // setOutputText('Error: ' + data);
+                  return;
+                }
+                console.log('Success:', data.data[0]);
+                setOutputText(data.data[0]);
+              }
+            )
+        }catch(e){
+          console.log('Error on server:', e);
+          return;
+        }
     }
 
     const handleRadioChange = (event: any) => {
@@ -111,25 +119,36 @@ function App() {
 
 
   return (
+
+    
     <div className='App'>
+
+
       <div className='Header'>
-        <h1>This is a header!</h1>
+        {/* <div id='img-header-wrapper' style={{width: '7.5vw', height: 'auto'}}>
+          <div style={{background: 'black', width: '7.5vw', height: '5vw'}}></div>
+          <img src="https://media.licdn.com/dms/image/C4D0BAQE-lG_lJ9CTew/company-logo_200_200/0/1630463497639/tailufpb_logo?e=2147483647&v=beta&t=x1H9GA4-qklUTbiV8FQa6LhpWUR05zwM5SwV7X_1EOc" alt="tail-logo" />
+        </div> */}
+
+        <h1 className= 'Title'>SummarizAI</h1>
       </div>
 
-      <div className='BodyHeader'>
-        <h2>Body Header!</h2>
-        {/* <p>Some cool text</p>
-        <p>This project is</p>
-        <p>about</p> */}
-      </div>
+      {/* <div className='BodyHeader'>
+        <p>SummarizAI Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget quam at orci rutrum semper. 
+          Pellentesque eu consectetur turpis. Vestibulum eu tristique leo. Fusce congue dolor erat, 
+          quis hendrerit augue sodales vel. </p>
+      </div> */}
 
       <div className='Body'>
+        
         <div className='InputSide'>
-          <h3>Input Area!</h3>
+          {/* <h3>input</h3> */}
+
+          {/* Language dropdown */}
           <div className='Dropdown'>
             <label>Algorithm</label>
-            <Dropdown onSelect={handleMethodChange}>
-            <Dropdown.Toggle id="dropdown-basic">
+            <Dropdown onSelect={handleMethodChange} >
+            <Dropdown.Toggle id="dropdown-basic" >
                 {selectedMethod}
             </Dropdown.Toggle>
 
@@ -142,6 +161,8 @@ function App() {
             {/* <MethodDropdown /> */}
           </div>
 
+
+          {/* Language dropdown */}
           <div className='Dropdown'>
             <label>Language</label>
             <Dropdown onSelect={handleLanguageChange}>
@@ -158,30 +179,39 @@ function App() {
             {/* <LanguageDropdown /> */}
           </div>
 
-          <div className='sentencesArea' style={{flexDirection: 'row', display: 'flex'}}>
+          <div className='sentencesArea'>
             <label>Sentences</label>
-            <textarea value={sentenceNumber} onChange={handleSentenceChange} style={{width: '50%', height: '50px'}} />
+            <textarea value={sentenceNumber} onChange={handleSentenceChange} style={{width: '50%', height: '30px', resize: 'none', marginBottom: '5px', marginLeft: '0px', fontSize: '14px'}} />
             {/* <NumberTextarea style={{width: '50%', height: '50px'}}/> */}
           </div>
 
-          <div id='radio-group' style={{display: 'flex', flexDirection: 'row'}}>
-            <div className='typeRadio' onChange={handleRadioChange} >
-              <input type="radio" value="URL" name="documentType" /> URL
-            </div>
-            <div className='typeRadio' onChange={handleRadioChange}>
-              <input type="radio" value="text" name="documentType"/> text
+          {/* Document type */}
+          <div className='typeArea'>
+            <label>Document Type</label> 
+
+            <div id='radio-group' style={{display: 'flex', alignItems: 'flex-start'}}>
+
+              <label className='typeRadio' onChange={handleRadioChange} >
+                <input style={{cursor: 'pointer'}} type="radio" value="URL" name="documentType" /> URL
+              </label>
+
+              <label className='typeRadio' onChange={handleRadioChange}>
+                <input style={{cursor: 'pointer'}}type="radio" value="text" name="documentType"/> text
+              </label>
+
             </div>
           </div>
 
-          <div style={{width: '100%'}}>
-              <h4>Input</h4>
+          {/* Input text area */}
+          <div style={{width: '100%', paddingTop:'5px'}}>
+              <h4>input</h4>
               <textarea 
                 ref={textareaRef}
                 value={textareacontent}
                 onChange={handleTextareaChange} 
                 style = {{width: '100%'}}
               />  
-              <div style={{width: "100%", flexDirection: 'row', display: 'flex', background: "#000000"}}>
+              <div style={{width: "100%", flexDirection: 'row', display: 'flex'}}>
                 <Button onClick={handleClearClick} style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}>Clear</Button> 
                 <Button onClick={handleSubmitClick} style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}>Submit</Button>
               </div>
@@ -192,21 +222,28 @@ function App() {
         </div>
 
         <div className='OutputSide'>
-          <h3>Output Area!</h3>
-
+          <h3>output</h3>
+          
           <div className='outputArea'>
-            <h4>Output</h4>
             <textarea readOnly 
             name="output" 
-            style= {{width: '100%'}}
+            style= {{width: '100%', resize: 'none', border: '2px solid #73AD21', borderRadius: '5px', padding: '10px', fontSize: '14px'}}
             value={outputText}
             ref={outputTextRef}>
             </textarea>
           </div>
 
         </div>
+
       </div>
       
+      <div className='Footer'>
+        {/* <p>Veja o Github do projeto | </p>
+        <a href="https://github.com/erlonL/nlp-front">
+          <img src="/github-mark.png" alt="github logo" />
+        </a> */}
+      </div>
+
     </div>
   );
 }

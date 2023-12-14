@@ -1,109 +1,123 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  /* background-color: #0B1D51; */
-}
-
 .App {
   /* width: 100vw; */
-  height: 100vh;
-  background-color: #0B1D51;
+  margin: 0;
+  min-height: 100vh;
+  height: 100%;
+  background-color: #FAEAD6;
+  display: flex;
+  flex-direction: column;
+}
+
+.Body {
+  width: 100%;
+  background-color: #0096c7;
+  display: flex;
+  flex-direction: row;
 }
 
 .Header {
   width: 100%;
   height: 10%;
-  background-color: antiquewhite ;
-  display: flex;
-  flex-direction: column;
+  max-height: 10%;
+  background-color: #FAEAD6 ;
+  font-family: bebas neue;
   align-items: center;
-  padding: 5%;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  
+  /* flex-direction: row; */
+}
+
+.Title {
+  font-size: 4vw;
+  color: #002A57;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
 }
 
 .BodyHeader {
-  background-color: crimson;
+  background-color: #FAEAD6;
   width: 100%;
-  text-align: center;
-}
-
-.Body {
-  /* width: 100%; */
-  /* height: 80%; */
-  background-color: forestgreen;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  text-align: flex-start;
+  font-family: 'Kalnia', serif; 
+  padding: 25px;
 }
 
 .mainForm {
   display: flex;
   flex-direction: column;
   margin: 25px;
-  color: white;
+  color: black;
   align-items: flex-start;
 }
 
-.mainForm textarea {
-  resize: vertical;
-  max-width: 50%;
-  margin: 5px;
-  border-radius: 5px;
-  border-style: solid;
+.sentencesArea {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.typeArea {
+  display: flex;
+  flex-direction: column;
 }
 
 .InputSide {
   display: flex;
   flex-direction: column;
   margin: 25px;
-  color: white;
-  background-color: greenyellow;
-  align-items: flex-start;
+  padding: 25px;
+
+  color: black;
+  background-color: #75B8FF;
   border: black;
   border-radius: 2%;
+  width: 100%;
 }
 
 .OutputSide {
   display: flex;
   flex-direction: column;
   margin: 25px;
-  color: white;
-  background-color: greenyellow;
-  align-items: flex-start;
+  padding: 25px;
+
+  color: black;
+  background-color: #75B8FF;
   border: black;
   border-radius: 2%;
-}
-
-.Dropdown {
-  margin: 5px;
-}
-
-.buttonArea {
-  margin: 5px;
-  flex-direction: row;
-  display: flex;
+  width: 100%;
 }
 
 .typeRadio {
   background-color: #ddd;
-  padding: 10px 20px;
+  padding: 7.5px 15px;
+  margin: 5px;
   font-size: 16px;
-  border: 2px solid #444;
-  border-radius: 4px;
+  border: 2px #444;
+  border-radius: 20%;
   cursor: pointer;
 }
 
-.typeRadio input {
-  margin-right: 5px;
-  margin-left: 5px;
-
+.Footer {
+  flex: 1;
+  width: 100%;
+  height: 10%;
+  max-height: 10%;
+  padding: 10px;
+  background-color: #002A57;
+  font-family: bebas neue;
+  justify-content: center;
+  display: flex;
+  position: relative;
 }
-
-
 
 /* vertical screens */
 @media only screen and (max-width: 768px) {
+  .Title {
+    font-size: 12vw;
+  }
+
   .Body {
     flex-direction: column;
     justify-content: center;
