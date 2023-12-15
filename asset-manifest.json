@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nlp-front/static/css/main.7b5e7788.css",
-    "main.js": "/nlp-front/static/js/main.b85d861d.js",
-    "static/js/787.40fe76fb.chunk.js": "/nlp-front/static/js/787.40fe76fb.chunk.js",
-    "index.html": "/nlp-front/index.html",
-    "main.7b5e7788.css.map": "/nlp-front/static/css/main.7b5e7788.css.map",
-    "main.b85d861d.js.map": "/nlp-front/static/js/main.b85d861d.js.map",
-    "787.40fe76fb.chunk.js.map": "/nlp-front/static/js/787.40fe76fb.chunk.js.map"
+    "main.css": "/summarizai/static/css/main.7b5e7788.css",
+    "main.js": "/summarizai/static/js/main.16c48eaf.js",
+    "static/js/787.20228839.chunk.js": "/summarizai/static/js/787.20228839.chunk.js",
+    "index.html": "/summarizai/index.html",
+    "main.7b5e7788.css.map": "/summarizai/static/css/main.7b5e7788.css.map",
+    "main.16c48eaf.js.map": "/summarizai/static/js/main.16c48eaf.js.map",
+    "787.20228839.chunk.js.map": "/summarizai/static/js/787.20228839.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7b5e7788.css",
-    "static/js/main.b85d861d.js"
+    "static/js/main.16c48eaf.js"
   ]
 }
