@@ -4,13 +4,15 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 
+
 function App() {
     const [selectedMethod, setMethod] = useState('');
     const [selectedLanguage, setLanguage] = useState('');
     const [sentenceNumber, setSentenceNumber] = useState('');
-    const [documentType, setDocumentType] = useState('');
+    const [documentType, setDocumentType] = useState('URL');
     const [textareacontent, setTextareacontent] = useState('');
     const [outputText, setOutputText] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -28,7 +30,6 @@ function App() {
 
         setMethod('LSA');
         setLanguage('portuguese');
-        setDocumentType('text');
         setSentenceNumber('5');
     }, [textareacontent]);
 
@@ -64,6 +65,33 @@ function App() {
         setOutputText('');
     };
 
+    const handleRequest = async (jsonData: any) => {
+      try{
+        setIsLoading(true);
+        const response = await fetch('https://issam9-sumy-space.hf.space/api/predict/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: jsonData
+        });
+    
+        if (!response.ok) {
+          throw new Error('HTTP error, status = ' + response.status);
+        }
+    
+        const data = await response.json();
+    
+        return data;
+    
+      }catch(e){
+        console.log('Error on server:', e);
+        return;
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
     const handleSubmitClick = () => {
         if(textareacontent === ''){
           console.log('Error: empty input');
@@ -85,32 +113,18 @@ function App() {
 
         const json = JSON.stringify(data);
 
-        console.log(json);
+        const response = handleRequest(json);
 
-        try{
-            fetch('https://issam9-sumy-space.hf.space/api/predict/', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: json
-            })
-            .then(response => response.json())
-            .then(
-              data => {
-                if(data.data[0] === undefined){
-                  console.log('Error:', data);
-                  // setOutputText('Error: ' + data);
-                  return;
-                }
-                console.log('Success:', data.data[0]);
-                setOutputText(data.data[0]);
-              }
-            )
-        }catch(e){
-          console.log('Error on server:', e);
-          return;
-        }
+        response.then((data) => {
+          try{
+            console.log(data['data'][0]);
+            setOutputText(data['data'][0]);
+          }catch(e){
+            console.log('Error on server:', e);
+          } finally {
+            setIsLoading(false);
+          }
+        });
     }
 
     const handleRadioChange = (event: any) => {
@@ -192,11 +206,11 @@ function App() {
             <div id='radio-group' style={{display: 'flex', alignItems: 'flex-start'}}>
 
               <label className='typeRadio' onChange={handleRadioChange} >
-                <input style={{cursor: 'pointer'}} type="radio" value="URL" name="documentType" /> URL
+                <input style={{cursor: 'pointer'}} type="radio" value="URL" name="documentType" checked={documentType === 'URL'}/> URL
               </label>
 
               <label className='typeRadio' onChange={handleRadioChange}>
-                <input style={{cursor: 'pointer'}}type="radio" value="text" name="documentType"/> text
+                <input style={{cursor: 'pointer'}}type="radio" value="text" name="documentType" checked={documentType === 'text'}/> text
               </label>
 
             </div>
@@ -212,8 +226,14 @@ function App() {
                 style = {{width: '100%'}}
               />  
               <div style={{width: "100%", flexDirection: 'row', display: 'flex'}}>
-                <Button onClick={handleClearClick} style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}>Clear</Button> 
-                <Button onClick={handleSubmitClick} style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}>Submit</Button>
+                <Button 
+                onClick={handleClearClick} 
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}
+                disabled={isLoading}>Clear</Button> 
+                <Button 
+                onClick={handleSubmitClick} 
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}
+                disabled={isLoading}>Submit</Button>
               </div>
               {/* <DocumentArea /> */}
           </div>
@@ -229,7 +249,8 @@ function App() {
             name="output" 
             style= {{width: '100%', resize: 'none', border: '2px solid #73AD21', borderRadius: '5px', padding: '10px', fontSize: '14px'}}
             value={outputText}
-            ref={outputTextRef}>
+            ref={outputTextRef}
+            disabled={isLoading}>
             </textarea>
           </div>
 
