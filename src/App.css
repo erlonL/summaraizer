@@ -10,7 +10,7 @@
 
 .Body {
   width: 100%;
-  background-color: #0096c7;
+  background-color: #FAEAD6;
   display: flex;
   flex-direction: row;
 }
@@ -62,7 +62,7 @@
   padding: 25px;
 
   color: black;
-  background-color: #75B8FF;
+  background-color: #FFFFFF;
   border: black;
   border-radius: 2%;
   width: 100%;
@@ -75,7 +75,7 @@
   padding: 25px;
 
   color: black;
-  background-color: #75B8FF;
+  background-color: #FFFFFF;
   border: black;
   border-radius: 2%;
   width: 100%;
@@ -87,7 +87,7 @@
   height: 10%;
   max-height: 10%;
   padding: 10px;
-  background-color: #002A57;
+  background-color: #FAEAD6;
   color: grey;
   font-family: 'Oswald', sans-serif;
   justify-content: center;
@@ -107,6 +107,10 @@
 #radio-group {
   display: flex;
   align-items: flex-start;
+}
+
+#outlabel {
+  color: black;
 }
 
 /* vertical screens */

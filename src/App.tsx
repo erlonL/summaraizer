@@ -4,6 +4,9 @@ import Button from 'react-bootstrap/Button';
 import CustomDropdown from './components/CustomDropdown';
 import CustomRadio from './components/CustomRadio';
 
+import { client } from "@gradio/client";
+
+
 
 function App() {
     const [selectedMethod, setMethod] = useState('LSA');
@@ -111,7 +114,7 @@ function App() {
           }
         });
     }
-
+  
   return (
 
     
@@ -140,7 +143,7 @@ function App() {
 
           {/* <MethodDropdown /> */}
           <div className='Dropdown'>
-            <label>Algorithm</label>
+            <label id='outlabel'>Algorithm</label>
             <CustomDropdown supportedOptions={supportedMethods} selectedOption={selectedMethod} setOption={setMethod} />
           </div>
 
@@ -195,7 +198,7 @@ function App() {
           <div className='outputArea'>
             <textarea readOnly 
             name="output" 
-            style= {{width: '100%', resize: 'none', border: '2px solid #73AD21', borderRadius: '5px', padding: '10px', fontSize: '14px'}}
+            style= {{width: '100%', resize: 'none', border: outputText === "" ? '2px solid black' : '2px solid #1D493C', borderRadius: '5px', padding: '10px', fontSize: '14px'}}
             value={outputText}
             ref={outputTextRef}
             disabled={isLoading}>

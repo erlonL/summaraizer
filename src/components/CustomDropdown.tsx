@@ -9,8 +9,8 @@ const CustomDropdown = (props: any) => {
     };
     
     return (
-        <Dropdown onSelect={handleOptionChange} >
-        <Dropdown.Toggle id="dropdown-basic" >
+        <Dropdown  onSelect={handleOptionChange} >
+        <Dropdown.Toggle style={{backgroundColor: '#0D6EFD'}} id="dropdown-basic" >
             {selectedOption}
         </Dropdown.Toggle>
 

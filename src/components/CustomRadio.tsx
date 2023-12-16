@@ -7,9 +7,10 @@ const CustomRadio = (props: any) => {
         setSelected(event.target.value);
     };
 
+    const isSelected = selectedValue === value;
 
     return (
-        <label style={{backgroundColor: '#0D6EFD',
+        <label style={{backgroundColor: isSelected? '#0B5ED8' : '#0D6EFD',
         color: 'white',
         padding: '7.5px 15px',
         margin: '5px',
