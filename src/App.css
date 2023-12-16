@@ -78,7 +78,6 @@
   margin: 25px;
   padding: 25px;
 
-  color: var(--text-color);
   background-color: var(--text-side-color);
   border: black;
   border-radius: 2%;
@@ -91,12 +90,28 @@
   margin: 25px;
   padding: 25px;
 
-  color: var(--text-color);
   background-color: var(--text-side-color);
   border: black;
   border-radius: 2%;
   width: 100%;
 }
+
+.OutputSide h4{
+  color: var(--text-color);
+}
+
+.InputSide h4{
+  color: var(--text-color);
+}
+
+.OutputSide label{
+  color: var(--text-color);
+}
+
+.InputSide label{
+  color: var(--text-color);
+}
+
 
 .Footer {
   flex: 1;
