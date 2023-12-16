@@ -1,67 +1,52 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
-// import DocumentArea from './components/documentArea';
 import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
+import CustomDropdown from './components/CustomDropdown';
+import CustomRadio from './components/CustomRadio';
 
 
 function App() {
-    const [selectedMethod, setMethod] = useState('');
-    const [selectedLanguage, setLanguage] = useState('');
-    const [sentenceNumber, setSentenceNumber] = useState('');
+    const [selectedMethod, setMethod] = useState('LSA');
+    const [selectedLanguage, setLanguage] = useState('portuguese');
+
+    const [sentenceNumber, setSentenceNumber] = useState('5');
     const [documentType, setDocumentType] = useState('URL');
-    const [textareacontent, setTextareacontent] = useState('');
+    const [inputText, setInputText] = useState('');
     const [outputText, setOutputText] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
 
-    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+    const inputTextRef = useRef<HTMLTextAreaElement | null>(null);
     const outputTextRef = useRef<HTMLTextAreaElement | null>(null);
 
-    const handleTextareaChange = (event: any) => {
-        setTextareacontent(event.target.value);
+    const handleInputTextChange = (event: any) => {
+        setInputText(event.target.value);
     };
 
     useEffect(() => {
-        if(textareaRef.current){
-            textareaRef.current.style.height = '20vh';
-            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-        }
-
-        setMethod('LSA');
-        setLanguage('portuguese');
-        setSentenceNumber('5');
-    }, [textareacontent]);
+      if(inputTextRef.current){
+          inputTextRef.current.style.height = '20vh';
+          inputTextRef.current.style.height = `${inputTextRef.current.scrollHeight}px`;
+      }
+    }, [inputText]);
 
     useEffect(() => {
-        if(outputTextRef.current){
-            outputTextRef.current.style.height = '5vh';
-            outputTextRef.current.style.height = `${outputTextRef.current?.scrollHeight}px`;
-        }
+      if(outputTextRef.current){
+          outputTextRef.current.style.height = '5vh';
+          outputTextRef.current.style.height = `${outputTextRef.current?.scrollHeight}px`;
+      }
     }, [outputText]);
 
-
-    const handleMethodChange = (eventKey: any) => {
-        setMethod(eventKey);
-    }
     const supportedMethods = ['LSA', 'luhn'];
-
-
-    const handleLanguageChange = (eventKey: any) => {
-        setLanguage(eventKey);
-    }
     const supportedLanguages = ['portuguese', 'english']; // ATS
+
 
     const handleSentenceChange = (event: any) => {
         setSentenceNumber(event.target.value);
     }
 
-    // const handleDocumentTypeChange = (event: any) => {
-    //     setDocumentType(event.target.value);
-    // }
-
     const handleClearClick = () => {
-        setTextareacontent('');
+        setInputText('');
         setOutputText('');
     };
 
@@ -93,7 +78,7 @@ function App() {
     }
 
     const handleSubmitClick = () => {
-        if(textareacontent === ''){
+        if(inputText === ''){
           console.log('Error: empty input');
           return;
         }
@@ -105,7 +90,7 @@ function App() {
             selectedLanguage,
             sentenceNumber,
             documentType, // URL or text
-            textareacontent
+            inputText
           ],
           "example_id":null,
           "session_hash":"cb1l3gk9k7s"
@@ -126,11 +111,6 @@ function App() {
           }
         });
     }
-
-    const handleRadioChange = (event: any) => {
-      setDocumentType(event.target.value);
-    };
-
 
   return (
 
@@ -158,61 +138,29 @@ function App() {
         <div className='InputSide'>
           {/* <h3>input</h3> */}
 
-          {/* Language dropdown */}
+          {/* <MethodDropdown /> */}
           <div className='Dropdown'>
             <label>Algorithm</label>
-            <Dropdown onSelect={handleMethodChange} >
-            <Dropdown.Toggle id="dropdown-basic" >
-                {selectedMethod}
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-                {supportedMethods.map((method) => (
-                    <Dropdown.Item eventKey={method}>{method}</Dropdown.Item>
-                ))}
-            </Dropdown.Menu>
-            </Dropdown>
-            {/* <MethodDropdown /> */}
+            <CustomDropdown supportedOptions={supportedMethods} selectedOption={selectedMethod} setOption={setMethod} />
           </div>
-
 
           {/* Language dropdown */}
           <div className='Dropdown'>
             <label>Language</label>
-            <Dropdown onSelect={handleLanguageChange}>
-            <Dropdown.Toggle id="dropdown-basic">
-                {selectedLanguage}
-            </Dropdown.Toggle>
-        
-            <Dropdown.Menu>
-                {supportedLanguages.map((language) => (
-                    <Dropdown.Item eventKey={language}>{language}</Dropdown.Item>
-                ))}
-            </Dropdown.Menu>
-            </Dropdown>
-            {/* <LanguageDropdown /> */}
+            <CustomDropdown supportedOptions={supportedLanguages} selectedOption={selectedLanguage} setOption={setLanguage} />
           </div>
 
           <div className='sentencesArea'>
             <label>Sentences</label>
-            <textarea value={sentenceNumber} onChange={handleSentenceChange} style={{width: '50%', height: '30px', resize: 'none', marginBottom: '5px', marginLeft: '0px', fontSize: '14px'}} />
-            {/* <NumberTextarea style={{width: '50%', height: '50px'}}/> */}
+            <textarea id='sentences-textarea' value={sentenceNumber} onChange={handleSentenceChange} />
           </div>
 
           {/* Document type */}
           <div className='typeArea'>
             <label>Document Type</label> 
-
-            <div id='radio-group' style={{display: 'flex', alignItems: 'flex-start'}}>
-
-              <label className='typeRadio' onChange={handleRadioChange} >
-                <input style={{cursor: 'pointer'}} type="radio" value="URL" name="documentType" checked={documentType === 'URL'}/> URL
-              </label>
-
-              <label className='typeRadio' onChange={handleRadioChange}>
-                <input style={{cursor: 'pointer'}}type="radio" value="text" name="documentType" checked={documentType === 'text'}/> text
-              </label>
-
+            <div id='radio-group'>
+              <CustomRadio value='URL' selectedValue={documentType} setSelected={setDocumentType} />
+              <CustomRadio value='text' selectedValue={documentType} setSelected={setDocumentType} />
             </div>
           </div>
 
@@ -220,9 +168,9 @@ function App() {
           <div style={{width: '100%', paddingTop:'5px'}}>
               <h4>input</h4>
               <textarea 
-                ref={textareaRef}
-                value={textareacontent}
-                onChange={handleTextareaChange} 
+                ref={inputTextRef}
+                value={inputText}
+                onChange={handleInputTextChange} 
                 style = {{width: '100%'}}
               />  
               <div style={{width: "100%", flexDirection: 'row', display: 'flex'}}>
@@ -242,7 +190,7 @@ function App() {
         </div>
 
         <div className='OutputSide'>
-          <h3>output</h3>
+          <h4>output</h4>
           
           <div className='outputArea'>
             <textarea readOnly 

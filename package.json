@@ -1,7 +1,7 @@
 {
-  "name": "nlp-front",
+  "name": "summarizai",
   "version": "0.1.0",
-  "homepage": "https://erlonl.github.io/nlp-front",
+  "homepage": "https://erlonl.github.io/summarizai",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",
