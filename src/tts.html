@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online TTS</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body>      
+    <section>
+        <textarea readonly disabled id="ttsInput" class="topcoat-textarea mousetrap" placeholder="text" style="resize: none; font-size: 11; display: none"></textarea>             
+        <div id="customise-options">
+            <label id="voice-label">
+                Select voice :
+                <div id="voice-container">
+                    <select id="select-voice">
+                        <option value="124">Brazilian Portuguese Female</option>
+                        <option value="186">Brazilian Portuguese Male</option>
+                        <option value="3">US Female</option>
+                        <option value="4">US Male</option>
+                        <option value="123">Portuguese Female</option>                            
+                        <option value="125">Portuguese Male</option>
+                    </select>                      
+                </div>
+            </label>   
+            <label id="speed-label">
+                Select speech speed :
+                <div id="speed-container">
+                    <input id="select-speed" type="range" class="topcoat-range" min="0" max="1.5" value="1" step="0.1" onchange="setSpeed(this.value)">
+                </div>
+            </label>                                  
+        </div>
+        <div class="button-row">
+            <button id="stop-button" class="topcoat-button" onclick="stopSpeech()">STOP</button>
+            <button id="speak-button" class="topcoat-button--cta" onclick="startSpeech()" >SPEAK</button>            
+        </div>
+
+    </section>
+    <script>
+        var params = location.href.split('?')[1].split('&');
+        data = {};
+        for (x in params)
+        {
+        data[params[x].split('=')[0]] = params[x].split('=')[1];
+        }  
+
+        console.log(data['data'])
+
+        var textarea = document.getElementById('ttsInput');
+        textarea.value = decodeURIComponent(data['data']);
+    </script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=R06QTECg"></script>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script>
+        var nativeVoice = 1, voices, speechSpeed = 1, info;
+
+        var setInput = function() {
+            var a = document.getElementById("ttsInput").value;
+            if(a !== "") {
+                info = a;
+            }
+            else {
+                info = "Ô, meu Deus, meu senhor Me ajuda, por favor É na escola, no trabalho ou faculdade Tô viciado No zap zap, zap zap, zap zap Zap zap, zap zap, zap zap, zap zap No zap zap, zap zap, zap zap, zap zap Zap zap, zap zap";
+            }
+        }
+
+        var setSpeed = function(x) {
+            var b = document.getElementById("select-speed").value;
+            speechSpeed = b;
+            console.log(b);
+        }
+
+        var startSpeech = function() {
+            setInput();
+            voices = document.getElementById("select-voice");
+            nativeVoice = voices.options[voices.selectedIndex].value;
+            setSpeed();
+            switch(nativeVoice){
+                case "3":
+                    responsiveVoice.speak(info, "US English Female", {rate: speechSpeed});
+                    break;
+                case "4":            
+                    responsiveVoice.speak(info, "US English Male", {rate: speechSpeed});
+                    break;
+                case "124":
+                    responsiveVoice.speak(info, 'Brazilian Portuguese Female', {rate: speechSpeed});
+                    break;
+                case "123":
+                    responsiveVoice.speak(info, 'Portuguese Female', {rate: speechSpeed});
+                    break;
+                case "125":
+                    responsiveVoice.speak(info, 'Portuguese Male', {rate: speechSpeed});
+                    break;
+                case "186":
+                    responsiveVoice.speak(info, 'Brazilian Portuguese Male', {rate: speechSpeed});
+                    break;
+                case "126":
+                    responsiveVoice.speak(info, 'Portuguese Female', {rate: speechSpeed});
+                    break;
+            }
+        }
+
+        var stopSpeech = function() {
+            responsiveVoice.cancel();
+        }
+    </script>
+</body>
+</html>

@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/js/mousetrap.min.js"  ]
 }

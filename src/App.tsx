@@ -22,6 +22,9 @@ function App() {
     const inputTextRef = useRef<HTMLTextAreaElement | null>(null);
     const outputTextRef = useRef<HTMLTextAreaElement | null>(null);
 
+
+    const isIframeDisabled = outputText === '';
+
     const handleInputTextChange = (event: any) => {
         setInputText(event.target.value);
     };
@@ -157,6 +160,7 @@ function App() {
             <label>Sentences</label>
             <textarea id='sentences-textarea' value={sentenceNumber} onChange={handleSentenceChange} />
           </div>
+          
 
           {/* Document type */}
           <div className='typeArea'>
@@ -204,6 +208,14 @@ function App() {
             disabled={isLoading}>
             </textarea>
           </div>
+          {!isIframeDisabled && (
+            // <iframe src={`./tts.html?data=${outputText}`}>
+
+            // </iframe>
+            <iframe src={`https://erlonl.github.io/tts?data=${outputText}`} style={{width: '100%', height: '100%'}}>
+
+            </iframe>
+          )}
 
         </div>
 
