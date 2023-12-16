@@ -146,7 +146,7 @@ function App() {
 
           {/* <MethodDropdown /> */}
           <div className='Dropdown'>
-            <label id='outlabel'>Algorithm</label>
+            <label>Algorithm</label>
             <CustomDropdown supportedOptions={supportedMethods} selectedOption={selectedMethod} setOption={setMethod} />
           </div>
 
