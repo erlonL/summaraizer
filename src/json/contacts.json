@@ -1,5 +1,12 @@
 [
     {
+        "name": "Tiago Maritan",
+        "occupation": "Mentor",
+        "githubUser": "",
+        "githubURL": "",
+        "img": "https://media.canva.com/1/image-resize/1/200_200_100_PNG_F/czM6Ly9tZWRpYS1wcml2YXRlLmNhbnZhLmNvbS9acFU3SS9NQUZ3SllacFU3SS8xL3AucG5n?osig=AAAAAAAAAAAAAAAAAAAAAG6YFHWe55N4HnoP9PKrv0d44CNpcH_NyYieP-iNTp7u&exp=1702947821&x-canva-quality=thumbnail&csig=AAAAAAAAAAAAAAAAAAAAAELrK3AUhpzZnV5pbG_HUOndvdaj68EQu3pW1N00QJrF"
+    },
+    {
         "name": "Tales Nobre",
         "occupation": "Director",
         "githubUser": "talesnobre",
@@ -12,13 +19,6 @@
         "githubUser": "Eduarda-Donato",
         "githubURL": "https://github.com/Eduarda-Donato",
         "img": "https://media.canva.com/1/image-resize/1/200_200_75_JPG_F/czM6Ly9tZWRpYS1wcml2YXRlLmNhbnZhLmNvbS9OaG5TSS9NQUZtZk9OaG5TSS8xL3AuanBn?osig=AAAAAAAAAAAAAAAAAAAAAO3XOXhBO5VDigFtpAjkNdXs6qbIfeLDeftMFB5apdmN&exp=1702945606&x-canva-quality=thumbnail&csig=AAAAAAAAAAAAAAAAAAAAAH7Bz8tCDpG2S-vFyvXRS-fXehsgXb4PZ0G5LaISWWXb"
-    },
-    {
-        "name": "Maritan",
-        "occupation": "Mentor",
-        "githubUser": "",
-        "githubURL": "",
-        "img": "https://media.canva.com/1/image-resize/1/200_200_100_PNG_F/czM6Ly9tZWRpYS1wcml2YXRlLmNhbnZhLmNvbS9acFU3SS9NQUZ3SllacFU3SS8xL3AucG5n?osig=AAAAAAAAAAAAAAAAAAAAAG6YFHWe55N4HnoP9PKrv0d44CNpcH_NyYieP-iNTp7u&exp=1702947821&x-canva-quality=thumbnail&csig=AAAAAAAAAAAAAAAAAAAAAELrK3AUhpzZnV5pbG_HUOndvdaj68EQu3pW1N00QJrF"
     },
     {
         "name": "Erlon Lacerda",
