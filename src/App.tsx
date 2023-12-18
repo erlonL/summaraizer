@@ -1,14 +1,11 @@
+// Home.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import './App.css';
 import Button from 'react-bootstrap/Button';
 import CustomDropdown from './components/CustomDropdown';
 import CustomRadio from './components/CustomRadio';
+import './css/App.css';
 
-import { client } from "@gradio/client";
-
-
-
-function App() {
+const App: React.FC = () => {
     const [selectedMethod, setMethod] = useState('LSA');
     const [selectedLanguage, setLanguage] = useState('portuguese');
 
@@ -121,17 +118,17 @@ function App() {
   return (
 
     
-    <div className='App'>
+    <div className='Home'>
 
 
-      <div className='Header'>
-        {/* <div id='img-header-wrapper' style={{width: '7.5vw', height: 'auto'}}>
+      {/* <div className='Header'>
+        <div id='img-header-wrapper' style={{width: '7.5vw', height: 'auto'}}>
           <div style={{background: 'black', width: '7.5vw', height: '5vw'}}></div>
           <img src="https://media.licdn.com/dms/image/C4D0BAQE-lG_lJ9CTew/company-logo_200_200/0/1630463497639/tailufpb_logo?e=2147483647&v=beta&t=x1H9GA4-qklUTbiV8FQa6LhpWUR05zwM5SwV7X_1EOc" alt="tail-logo" />
-        </div> */}
+        </div>
 
         <h1 className= 'Title'>SummarizAI</h1>
-      </div>
+      </div> */}
 
       {/* <div className='BodyHeader'>
         <p>SummarizAI Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget quam at orci rutrum semper. 
@@ -166,8 +163,8 @@ function App() {
           <div className='typeArea'>
             <label>Document Type</label> 
             <div id='radio-group'>
-              <CustomRadio value='URL' selectedValue={documentType} setSelected={setDocumentType} />
-              <CustomRadio value='text' selectedValue={documentType} setSelected={setDocumentType} />
+              <CustomRadio value='URL' selectedValue={documentType} setSelected={setDocumentType} style={{border: 'none'}} />
+              <CustomRadio value='text' selectedValue={documentType} setSelected={setDocumentType} style={{border: 'none'}} />
             </div>
           </div>
 
@@ -183,11 +180,11 @@ function App() {
               <div style={{width: "100%", flexDirection: 'row', display: 'flex'}}>
                 <Button 
                 onClick={handleClearClick} 
-                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: '#01BDFC', border: 'none'}}
                 disabled={isLoading}>Clear</Button> 
                 <Button 
                 onClick={handleSubmitClick} 
-                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px'}}
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: '#01BDFC', border: 'none'}}
                 disabled={isLoading}>Submit</Button>
               </div>
               {/* <DocumentArea /> */}
@@ -221,12 +218,7 @@ function App() {
 
       </div>
       
-      <div className='Footer'>
-        {/* <p>Veja o Github do projeto | </p>
-        <a href="https://github.com/erlonL/nlp-front">
-          <img src="/github-mark.png" alt="github logo" />
-        </a> */}
-      </div>
+
 
     </div>
   );

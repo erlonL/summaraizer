@@ -10,12 +10,12 @@ const CustomRadio = (props: any) => {
     const isSelected = selectedValue === value;
 
     return (
-        <label style={{backgroundColor: isSelected? '#0B5ED8' : '#0D6EFD',
+        <label style={{backgroundColor: isSelected? '#01BDFC' : '#01BDFC',
         color: 'white',
         padding: '7.5px 15px',
         margin: '5px',
         fontSize: '16px',
-        border: '2px #444',
+        border: '2px #000',
         borderRadius: '20%',
         cursor: 'pointer'}}>
             <input
@@ -23,7 +23,7 @@ const CustomRadio = (props: any) => {
                 value={value}
                 checked={selectedValue === value}
                 onChange={handleChange}
-                style={{cursor: 'pointer'}}
+                style={{cursor: 'pointer', color: '#000000', border: 'none'}}
             />
             {value}
         </label>

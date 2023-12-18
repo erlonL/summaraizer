@@ -1,0 +1,39 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    /* max-width: 26vw;
+    max-height: 26vh; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 25px;
+    padding: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.card:hover {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card p{
+font-family: 'Kalnia', serif;
+font-size: 1.5vw;
+margin-top: 10px;
+}
+
+.card h2{
+font-family: 'Kalnia', serif;
+font-weight: 400;
+margin-top: 10px;
+}
+
+img {
+border-radius: 50%;
+}
+
+.container {
+padding: 2px 16px;
+}

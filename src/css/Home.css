@@ -1,0 +1,140 @@
+/* .title-section {
+} */
+
+.nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title-wrapper {
+    margin-left: 5vw;
+}
+
+.router-element {
+    position: relative;
+    padding: 0 1.5vw;
+    font-size: 24px;
+    text-align: center;
+    margin-right: 5vw;
+}
+
+.router-link {
+    color: black;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.router-link:hover p {
+    color: #0366d6;
+}
+
+.router-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    max-width: 80%;
+    height: 2px;
+    background: black;
+    transition: width .4s ease;
+}
+
+#enabled-link {
+    color: #0366d6;
+}
+
+.router-link:hover::after {
+    width: 100%;
+}
+
+#title-link {
+    font-size: 4vw;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+    color: black;
+}
+
+.Title {
+    font-size: 4vw;
+    /* color: var(--title-color); */
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+}
+
+.router-section {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    padding: 5px;
+    justify-content: flex-end;
+}
+  
+.Footer {
+    flex: 1;
+    width: 100%;
+    height: 10%;
+    max-height: 10%;
+    padding: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Oswald', sans-serif;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+
+.footer-icons-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5vw;
+}
+
+.footer-icon{
+    background-color: #D5DADA;
+    align-items: center;
+    display: inline-flex;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
+.footer-icon img{
+    /* width: 45px; */
+    align-items: center;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.footer-icon:hover{
+    opacity: 70%;
+    transition: 0.4s;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    #title-link {
+        font-size: 10vw;
+    }
+    .Body {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .router-section {
+        font-size: 32px;
+    }
+  
+    .mainForm textarea {
+      max-width: 100%;
+      font-size: 4vw;
+    }
+  }
