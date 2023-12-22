@@ -27,7 +27,7 @@ function Home() {
                 <Link id='title-link'
                     onClick={() => setNav('summaraizer')} to='/summaraizer'>
                         <span>
-                            <p>SummarAIzer</p>
+                            <p>Summar<span style={{color: '#0077FF'}}>AI</span>zer</p>
                         </span>
                 </Link>
             </div>
