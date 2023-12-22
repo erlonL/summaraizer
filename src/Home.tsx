@@ -9,15 +9,19 @@ import Contact from './Contact';
 function Home() {
     const [nav, setNav] = React.useState('');
 
-    const isDocumentationSelected = nav === 'documentation';
-    const isContactSelected = nav === 'contact';
+    const isDocumentationRoute = window.location.pathname === '/summaraizer/documentation';
+    const isContactRoute = window.location.pathname === '/summaraizer/contact';
+
+    const isDocumentationSelected = nav === 'documentation' || isDocumentationRoute;
+    const isContactSelected = nav === 'contact' || isContactRoute;
+
     
     // const isSummarizAISelected = nav === 'summarizai';
 
   return (
     <>
         <Router>
-        <nav className='nav-wrapper'>
+        <nav className={`nav-wrapper ${isContactRoute ? 'sticky' : ''}`}>
 
             <div className='title-wrapper'>
                 <Link id='title-link'
