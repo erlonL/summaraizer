@@ -14,29 +14,15 @@ const Contact = () => {
     return (
       <div className='Contact'>
         <div className='contact-wrapper'>
-          <div id='first-array-half' className='contacts-half'>
-            {contacts.slice(0, contacts.length / 2).map((contact) => (
-              <CustomCard
-                name={contact.name}
-                occupation={contact.occupation}
-                githubUser={contact.githubUser}
-                githubURL={contact.githubURL}
-                img={contact.img}
-              />
-            ))}
-          </div>
-          <div id='second-array-half' className='contacts-half'>
-            {contacts.slice(contacts.length / 2).map((contact) => (
-              <CustomCard
-                name={contact.name}
-                occupation={contact.occupation}
-                githubUser={contact.githubUser}
-                githubURL={contact.githubURL}
-                img={contact.img}
-              />
-            ))}
-          </div>
-          
+          {contacts.map((contact) => (
+            <CustomCard
+              name={contact.name}
+              occupation={contact.occupation}
+              githubUser={contact.githubUser}
+              githubURL={contact.githubURL}
+              img={contact.img}
+            />
+          ))}
         </div>
       </div>
     );

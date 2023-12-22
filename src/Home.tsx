@@ -63,25 +63,25 @@ function Home() {
 
         <div className='Footer'>
             <div className='footer-icons-wrapper'>
-                <a href="https://github.com/erlonl/summaraizer" className='footer-icon'>
+                <a href="https://github.com/erlonl/summaraizer">
                     <img 
                     src={require("./img/github-mark.png")} 
                     alt="github logo"
-                    className='footer-icon'
+                    className='footer-icon-img'
                     />
                 </a>
-                <a href="https://aria.ci.ufpb.br/tail/" className='footer-icon'>
+                <a href="https://aria.ci.ufpb.br/tail/">
                     <img 
                     src={require("./img/tail.jpg")} 
                     alt="tail logo"
-                    className='footer-icon'
+                    className='footer-icon-img'
                     />
                 </a>
-                <a href="https://aria.ci.ufpb.br/" className='footer-icon'>
+                <a href="https://aria.ci.ufpb.br/">
                     <img 
                     src={require("./img/aria.jpg")} 
                     alt="aria logo"
-                    className='footer-icon'
+                    className='footer-icon-img'
                     />
                 </a>
             </div>

@@ -1,3 +1,19 @@
+:root {
+    --text-color: black;
+    --background-color: #FAEAD6;
+    --title-color: #002A57;
+    --text-side-color: white;
+}
+  
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: white;
+        --background-color: #164863;
+        --title-color: #DDF2FD;
+        --text-side-color: #427D9D;
+    }
+}
+
 .Documentation {
     width: 100vw;
     margin: 0;
@@ -15,5 +31,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+}
 
+@media only screen and (max-width: 768px) {
+    .main-doc-wrapper {
+        margin-top: 5vh;
+        width: 80%;
+    }
+    .Documentation {
+        width: 100%;
+    }
 }

@@ -1,16 +1,16 @@
 :root {
     --text-color: black;
     --background-color: #FAEAD6;
-    --title-color: #000000;
-    --text-side-color: rgb(255, 255, 255);
+    --title-color: #002A57;
+    --text-side-color: white;
   }
   
   @media (prefers-color-scheme: dark) {
     :root {
       --text-color: white;
-      --background-color: #D5DADA;
-      --title-color: #000000;
-      --text-side-color: #090f13;
+      --background-color: #164863;
+      --title-color: #DDF2FD;
+      --text-side-color: #427D9D;
     }
   }
   
