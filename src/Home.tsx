@@ -20,7 +20,6 @@ function Home() {
 
   return (
     <>
-        <Router>
         <nav className={`nav-wrapper ${isContactRoute ? 'sticky' : ''}`}>
 
             <div className='title-wrapper'>
@@ -58,12 +57,11 @@ function Home() {
         </nav>
 
             <Routes>
-                {/* <Route path='/' element={<Navigate to='/summarizai' />} /> */}
+                <Route path='/' element={<Navigate to='/summaraizer' />} />
                 <Route path="/summaraizer" element={<App />} />
                 <Route path="/summaraizer/documentation" element={<Documentation />} />
                 <Route path="/summaraizer/contact" element={<Contact />} />
             </Routes>
-        </Router>
 
         <div className='Footer'>
             <div className='footer-icons-wrapper'>
