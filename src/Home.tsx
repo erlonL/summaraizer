@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './css/Home.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Link, useRoutes, Navigate } from 'react-router-dom';
 import App from './App';
 import Documentation from './Documentation';
@@ -9,8 +9,11 @@ import Contact from './Contact';
 function Home() {
     const [nav, setNav] = React.useState('');
 
-    const isDocumentationRoute = window.location.pathname === '/summaraizer/documentation';
-    const isContactRoute = window.location.pathname === '/summaraizer/contact';
+    const location = useLocation();
+
+    const isDocumentationRoute = location.pathname.includes('documentation');
+
+    const isContactRoute = location.pathname.includes('contact');
 
     const isDocumentationSelected = nav === 'documentation' || isDocumentationRoute;
     const isContactSelected = nav === 'contact' || isContactRoute;
@@ -24,7 +27,8 @@ function Home() {
 
             <div className='title-wrapper'>
                 <Link id='title-link'
-                    onClick={() => setNav('summaraizer')} to='/summaraizer'>
+                    onClick={() => setNav('summaraizer')} to='/'>
+                        
                         <span>
                             <p>Summar<span style={{color: '#0077FF'}}>AI</span>zer</p>
                         </span>
@@ -42,14 +46,14 @@ function Home() {
                 <div className='router-element'>
                     <Link className='router-link' 
                     id={isDocumentationSelected? 'enabled-link' : 'disabled-link'} 
-                    onClick={() => setNav('documentation')} to='summaraizer/documentation'>
+                    onClick={() => setNav('documentation')} to='/documentation'>
                         <p>Documentation</p>
                     </Link>
                 </div>
                 <div className='router-element'>
                     <Link className='router-link' 
                     id={isContactSelected? 'enabled-link' : 'disabled-link'} 
-                    onClick={() => setNav('contact')} to='summaraizer/contact'>
+                    onClick={() => setNav('contact')} to='/contact'>
                         <p>Contact</p>
                     </Link>
                 </div>
@@ -57,10 +61,13 @@ function Home() {
         </nav>
 
             <Routes>
-                <Route path='/' element={<Navigate to='/summaraizer' />} />
-                <Route path="/summaraizer" element={<App />} />
-                <Route path="/summaraizer/documentation" element={<Documentation />} />
-                <Route path="/summaraizer/contact" element={<Contact />} />
+                {/* <Route path='/' element={<Navigate to='/summaraizer' />} /> */}
+                <Route path="/" element={<App />} />
+                <Route path="/documentation" element={<Documentation />} />
+                <Route path="/contact" element={<Contact />} />
+
+                <Route path="/#/documentation" element={<Navigate to= '/documentation' />} />
+                <Route path="/#/contact" element={<Navigate to='/contact' />} />
             </Routes>
 
         <div className='Footer'>
