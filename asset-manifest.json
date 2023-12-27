@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/summaraizer/static/css/main.0830c6ab.css",
-    "main.js": "/summaraizer/static/js/main.1565be12.js",
+    "main.js": "/summaraizer/static/js/main.7398a329.js",
     "static/js/787.4ae90deb.chunk.js": "/summaraizer/static/js/787.4ae90deb.chunk.js",
     "static/media/DanielMSousa.png": "/summaraizer/static/media/DanielMSousa.c47c620a072b1e12339c.png",
     "static/media/Eduarda-Donato.png": "/summaraizer/static/media/Eduarda-Donato.eba96f5788681fb50750.png",
@@ -17,11 +17,11 @@
     "static/media/user_manual.md": "/summaraizer/static/media/user_manual.c9c31969c523d85b8918.md",
     "static/media/about.md": "/summaraizer/static/media/about.aa39392adc4f4ec863ff.md",
     "main.0830c6ab.css.map": "/summaraizer/static/css/main.0830c6ab.css.map",
-    "main.1565be12.js.map": "/summaraizer/static/js/main.1565be12.js.map",
+    "main.7398a329.js.map": "/summaraizer/static/js/main.7398a329.js.map",
     "787.4ae90deb.chunk.js.map": "/summaraizer/static/js/787.4ae90deb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0830c6ab.css",
-    "static/js/main.1565be12.js"
+    "static/js/main.7398a329.js"
   ]
 }
