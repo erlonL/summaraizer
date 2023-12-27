@@ -1,17 +1,25 @@
 {
   "files": {
-    "main.css": "/summaraizer/static/css/main.3964309b.css",
-    "main.js": "/summaraizer/static/js/main.57eae550.js",
+    "main.css": "/summaraizer/static/css/main.812fe654.css",
+    "main.js": "/summaraizer/static/js/main.7ed76e80.js",
     "static/js/787.4ae90deb.chunk.js": "/summaraizer/static/js/787.4ae90deb.chunk.js",
+    "static/media/DanielMSousa.png": "/summaraizer/static/media/DanielMSousa.c47c620a072b1e12339c.png",
+    "static/media/Eduarda-Donato.png": "/summaraizer/static/media/Eduarda-Donato.eba96f5788681fb50750.png",
+    "static/media/Joyce-Ribeiro.png": "/summaraizer/static/media/Joyce-Ribeiro.6b751148e581997a57eb.png",
+    "static/media/Tiago Maritan.png": "/summaraizer/static/media/Tiago Maritan.dd8f52c09b9974d74758.png",
+    "static/media/biabcaval.png": "/summaraizer/static/media/biabcaval.7a84e4946226178632b4.png",
+    "static/media/erlonL.png": "/summaraizer/static/media/erlonL.95928280bea5390e9cdf.png",
+    "static/media/mariabandeira.png": "/summaraizer/static/media/mariabandeira.09cafe58863425c2136b.png",
+    "static/media/talesnobre.png": "/summaraizer/static/media/talesnobre.83c65d0a1da142912e8f.png",
     "static/media/aria.jpg": "/summaraizer/static/media/aria.1e054d48c4b363b2b8ba.jpg",
     "index.html": "/summaraizer/index.html",
     "static/media/documentation.md": "/summaraizer/static/media/documentation.d6c5f1b79bd1fa792147.md",
-    "main.3964309b.css.map": "/summaraizer/static/css/main.3964309b.css.map",
-    "main.57eae550.js.map": "/summaraizer/static/js/main.57eae550.js.map",
+    "main.812fe654.css.map": "/summaraizer/static/css/main.812fe654.css.map",
+    "main.7ed76e80.js.map": "/summaraizer/static/js/main.7ed76e80.js.map",
     "787.4ae90deb.chunk.js.map": "/summaraizer/static/js/787.4ae90deb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3964309b.css",
-    "static/js/main.57eae550.js"
+    "static/css/main.812fe654.css",
+    "static/js/main.7ed76e80.js"
   ]
 }
