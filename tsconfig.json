@@ -18,9 +18,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve"
   },
   "include": [
-    "src"
-, "src/js/mousetrap.min.js"  ]
+    "src",
+    "src/js/mousetrap.min.js"
+  ]
 }

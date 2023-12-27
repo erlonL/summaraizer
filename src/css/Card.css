@@ -47,20 +47,20 @@
 
 .github-user-icon {
     display: inline-block;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     width: 25px;
     height: 25px;
     margin-left: -10px;
 }
 
 img {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     width: 200px;
     max-width: 80%;
     height: 200px;
     max-height: 80%;
     align-self: center;
-    margin: 10px;
+    margin: 25px;
 }
 
 .container {

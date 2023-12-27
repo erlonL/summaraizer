@@ -5,6 +5,7 @@ import { Link, useRoutes, Navigate } from 'react-router-dom';
 import App from './App';
 import Documentation from './Documentation';
 import Contact from './Contact';
+import ScrollToTop from './components/ScrollToTop';
 
 function Home() {
     const [nav, setNav] = React.useState('');
@@ -23,6 +24,7 @@ function Home() {
 
   return (
     <>
+        <ScrollToTop />
         <nav className={`nav-wrapper ${isContactRoute ? 'sticky' : ''}`}>
 
             <div className='title-wrapper'>

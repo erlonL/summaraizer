@@ -5,41 +5,37 @@ import Home from './App';
 import Documentation from './Documentation';
 import './css/Contact.css';
 import CustomCard from './components/CustomCard';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import contacts from './json/contacts.json';
-import { GET_CONTACTS } from './fetch';
 
 interface Contact {
   name: string;
   githubUser: string;
   githubURL: string;
-  img: string;
   occupation: string;
 }
 
 const Contact = () => {
 
-    const [contacts, setContacts] = useState<Contact[]>([]); // Update the type of 'contacts'
-
-    useEffect(() => {
-        const fetchContacts = async () => {
-            const contacts_response = await GET_CONTACTS();
-            setContacts(contacts_response);
-        }
-        fetchContacts();
-    }, []);
-
     return (
       <div className='Contact'>
         <div className='contact-wrapper'>
-          {contacts.map((contact) => (
+        <CustomCard
+        name={contacts[0].name}
+        githubUser={contacts[0].githubUser}
+        githubURL={contacts[0].githubURL}
+        img={require('./img/identicons/Tiago Maritan.png')}
+        occupation={contacts[0].occupation}
+        >
+        </CustomCard>
+        {contacts.slice(1).map((contact) => (
             <CustomCard
               name={contact.name}
               githubUser={contact.githubUser}
               githubURL={contact.githubURL}
-              img={contact.img}
-              occupation={contact.occupation} // Add the 'occupation' property
+              img={require('./img/identicons/' + contact.githubUser + '.png')}
+              occupation={contact.occupation}
             />
           ))}
         </div>
