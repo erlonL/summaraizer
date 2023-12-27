@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/summaraizer/static/css/main.bf68381e.css",
-    "main.js": "/summaraizer/static/js/main.7ed76e80.js",
+    "main.css": "/summaraizer/static/css/main.0830c6ab.css",
+    "main.js": "/summaraizer/static/js/main.1565be12.js",
     "static/js/787.4ae90deb.chunk.js": "/summaraizer/static/js/787.4ae90deb.chunk.js",
     "static/media/DanielMSousa.png": "/summaraizer/static/media/DanielMSousa.c47c620a072b1e12339c.png",
     "static/media/Eduarda-Donato.png": "/summaraizer/static/media/Eduarda-Donato.eba96f5788681fb50750.png",
@@ -13,13 +13,15 @@
     "static/media/talesnobre.png": "/summaraizer/static/media/talesnobre.83c65d0a1da142912e8f.png",
     "static/media/aria.jpg": "/summaraizer/static/media/aria.1e054d48c4b363b2b8ba.jpg",
     "index.html": "/summaraizer/index.html",
-    "static/media/documentation.md": "/summaraizer/static/media/documentation.d6c5f1b79bd1fa792147.md",
-    "main.bf68381e.css.map": "/summaraizer/static/css/main.bf68381e.css.map",
-    "main.7ed76e80.js.map": "/summaraizer/static/js/main.7ed76e80.js.map",
+    "static/media/tech_info.md": "/summaraizer/static/media/tech_info.a7e1adb32fc9758aa8c7.md",
+    "static/media/user_manual.md": "/summaraizer/static/media/user_manual.c9c31969c523d85b8918.md",
+    "static/media/about.md": "/summaraizer/static/media/about.aa39392adc4f4ec863ff.md",
+    "main.0830c6ab.css.map": "/summaraizer/static/css/main.0830c6ab.css.map",
+    "main.1565be12.js.map": "/summaraizer/static/js/main.1565be12.js.map",
     "787.4ae90deb.chunk.js.map": "/summaraizer/static/js/787.4ae90deb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf68381e.css",
-    "static/js/main.7ed76e80.js"
+    "static/css/main.0830c6ab.css",
+    "static/js/main.1565be12.js"
   ]
 }
