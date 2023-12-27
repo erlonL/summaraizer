@@ -18,12 +18,6 @@
         "githubURL": "https://github.com/Eduarda-Donato"
     },
     {
-        "name": "Erlon Lacerda",
-        "occupation": "Member",
-        "githubUser": "erlonL",
-        "githubURL": "https://github.com/erlonL/"
-    },
-    {
         "name": "Beatriz Barreto",
         "occupation": "Member",
         "githubUser": "biabcaval",
@@ -36,15 +30,21 @@
         "githubURL": "https://github.com/DanielMSousa"
     },
     {
-        "name": "Maria Eduarda Vasconcelos",
+        "name": "Erlon Lacerda",
         "occupation": "Member",
-        "githubUser": "mariabandeira",
-        "githubURL": "https://github.com/mariabandeira"
+        "githubUser": "erlonL",
+        "githubURL": "https://github.com/erlonL/"
     },
     {
         "name": "Joyce Ribeiro",
         "occupation": "Member",
         "githubUser": "Joyce-Ribeiro",
         "githubURL": "https://github.com/Joyce-Ribeiro"
+    },
+    {
+        "name": "Maria Eduarda Vasconcelos",
+        "occupation": "Member",
+        "githubUser": "mariabandeira",
+        "githubURL": "https://github.com/mariabandeira"
     }
 ]

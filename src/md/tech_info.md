@@ -1,4 +1,4 @@
-# SummarAIzer
+# Technical Information
 
 SummarAIzer is based on two libraries
 - Sumy

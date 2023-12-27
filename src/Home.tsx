@@ -68,8 +68,8 @@ function Home() {
                 <Route path="/documentation" element={<Documentation />} />
                 <Route path="/contact" element={<Contact />} />
 
-                <Route path="/#/documentation" element={<Navigate to= '/documentation' />} />
-                <Route path="/#/contact" element={<Navigate to='/contact' />} />
+                {/* <Route path="/#/documentation" element={<Navigate to= '/documentation' />} />
+                <Route path="/#/contact" element={<Navigate to='/contact' />} /> */}
             </Routes>
 
         <div className='Footer'>
