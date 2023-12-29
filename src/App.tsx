@@ -6,14 +6,13 @@ import CustomRadio from './components/CustomRadio';
 import './css/App.css';
 
 const App: React.FC = () => {
-    const [selectedMethod, setMethod] = useState('LSA');
-    const [selectedLanguage, setLanguage] = useState('portuguese');
 
     const [sentenceNumber, setSentenceNumber] = useState('5');
     const [documentType, setDocumentType] = useState('URL');
     const [inputText, setInputText] = useState('');
     const [outputText, setOutputText] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [buttonClicked, setButtonClicked] = useState(false);
 
 
     const inputTextRef = useRef<HTMLTextAreaElement | null>(null);
@@ -21,10 +20,6 @@ const App: React.FC = () => {
 
 
     const isIframeDisabled = outputText === '';
-
-    const handleInputTextChange = (event: any) => {
-        setInputText(event.target.value);
-    };
 
     useEffect(() => {
       if(inputTextRef.current){
@@ -40,22 +35,45 @@ const App: React.FC = () => {
       }
     }, [outputText]);
 
-    const supportedMethods = ['LSA', 'luhn'];
-    const supportedLanguages = ['portuguese', 'english']; // ATS
+    // const supportedMethods = ['LSA', 'luhn'];
+    const supportedMethods = [
+      { value: 'LSA', label: 'LSA', image: ''},
+      { value: 'luhn', label: 'luhn', image: ''}
+    ];
+    // const supportedLanguages = ['portuguese', 'english']; // ATS
+    const supportedLanguages = [
+      { value: 'portuguese', label: 'portuguese', image: require('./img/languageIcons/brazil-.png')},
+      { value: 'english', label: 'english', image: require('./img/languageIcons/united-states.png')}
+    ];
 
+    const [selectedMethod, setMethod] = useState(supportedMethods[0]);
+    const [selectedLanguage, setLanguage] = useState(supportedLanguages[0]);
 
-    const handleSentenceChange = (event: any) => {
-        setSentenceNumber(event.target.value);
-    }
+    const [selectedMethodValue, setSelectedMethodValue] = useState(supportedMethods[0]['value']);
+    const [selectedLanguageValue, setSelectedLanguageValue] = useState(supportedLanguages[0]['value']);
 
-    const handleClearClick = () => {
+    useEffect(() => {
+      setSelectedMethodValue(selectedMethod['value']);
+    }, [selectedMethod]);
+
+    useEffect(() => {
+      setSelectedLanguageValue(selectedLanguage['value']);
+    }, [selectedLanguage]);
+
+    const handleClearClick = (event: any) => {
+        setButtonClicked(true);
+
         setInputText('');
         setOutputText('');
+        setTimeout(() => {
+          setButtonClicked(false);
+        }, 150);
     };
 
     const handleRequest = async (jsonData: any) => {
       try{
         setIsLoading(true);
+        setButtonClicked(true);
         const response = await fetch('https://issam9-sumy-space.hf.space/api/predict/', {
           method: 'POST',
           headers: {
@@ -77,6 +95,7 @@ const App: React.FC = () => {
         return;
       } finally {
         setIsLoading(false);
+        setButtonClicked(false);
       }
     }
 
@@ -89,8 +108,8 @@ const App: React.FC = () => {
         const data = {
           "cleared":false,
           'data': [
-            selectedMethod,
-            selectedLanguage,
+            selectedMethodValue,
+            selectedLanguageValue,
             sentenceNumber,
             documentType, // URL or text
             inputText
@@ -142,29 +161,29 @@ const App: React.FC = () => {
           {/* <h3>input</h3> */}
 
           {/* <MethodDropdown /> */}
-          <div className='Dropdown'>
-            <label>Algorithm</label>
-            <CustomDropdown supportedOptions={supportedMethods} selectedOption={selectedMethod} setOption={setMethod} />
+          <div>
+            <label className='input-label'>Algorithm</label>
+            <CustomDropdown supportedOptions={supportedMethods} selectedOption={selectedMethod} setOption={setMethod}/>
           </div>
 
           {/* Language dropdown */}
-          <div className='Dropdown'>
-            <label>Language</label>
-            <CustomDropdown supportedOptions={supportedLanguages} selectedOption={selectedLanguage} setOption={setLanguage} />
+          <div>
+            <label className='input-label'>Language</label>
+            <CustomDropdown supportedOptions={supportedLanguages} selectedOption={selectedLanguage} setOption={setLanguage}/>
           </div>
 
           <div className='sentencesArea'>
-            <label>Sentences</label>
-            <textarea id='sentences-textarea' value={sentenceNumber} onChange={handleSentenceChange} />
+            <label className='input-label'>Sentences</label>
+            <textarea id='sentences-textarea' value={sentenceNumber} onChange={(event: any) => setSentenceNumber(event.target.value)} />
           </div>
           
 
           {/* Document type */}
           <div className='typeArea'>
-            <label>Document Type</label> 
+            <label className='input-label'>Document Type</label> 
             <div id='radio-group'>
-              <CustomRadio value='URL' selectedValue={documentType} setSelected={setDocumentType} style={{border: 'none'}} />
-              <CustomRadio value='text' selectedValue={documentType} setSelected={setDocumentType} style={{border: 'none'}} />
+              <CustomRadio value='URL' selectedValue={documentType} setSelected={setDocumentType} style={{marginRight: '5px'}} />
+              <CustomRadio value='text' selectedValue={documentType} setSelected={setDocumentType} />
             </div>
           </div>
 
@@ -174,18 +193,24 @@ const App: React.FC = () => {
               <textarea 
                 ref={inputTextRef}
                 value={inputText}
-                onChange={handleInputTextChange} 
+                onChange={(event: any) => setInputText(event.target.value) } 
                 style = {{width: '100%'}}
               />  
               <div style={{width: "100%", flexDirection: 'row', display: 'flex'}}>
                 <Button 
-                onClick={handleClearClick} 
-                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: '#01BDFC', border: 'none'}}
-                disabled={isLoading}>Clear</Button> 
+                onClick={handleClearClick}
+
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: 'var(--props-color)', color: 'var(--reverse-text-color)', border: '2px solid var(--props-color)', transition: 'all 0.1s ease-in-out'}}
+                onMouseEnter={(e: any) => e.target.style.border = '2px solid var(--reverse-props-color)'}
+                onMouseLeave={(e: any) => e.target.style.border = '2px solid var(--props-color)'}
+                disabled={((isLoading) || (buttonClicked))}>Clear</Button> 
+
                 <Button 
                 onClick={handleSubmitClick} 
-                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: '#01BDFC', border: 'none'}}
-                disabled={isLoading}>Submit</Button>
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: 'var(--props-color)', color: 'var(--reverse-text-color)', border: '2px solid var(--props-color)', transition: 'all 0.1s ease-in-out'}}
+                onMouseEnter={(e: any) => e.target.style.border = '2px solid var(--reverse-props-color)'}
+                onMouseLeave={(e: any) => e.target.style.border = '2px solid var(--props-color)'}
+                disabled={((isLoading) || (buttonClicked))}>Submit</Button>
               </div>
               {/* <DocumentArea /> */}
           </div>
@@ -209,7 +234,7 @@ const App: React.FC = () => {
             // <iframe src={`./tts.html?data=${outputText}`}>
 
             // </iframe>
-            <iframe src={`https://erlonl.github.io/tts?data=${outputText}`} style={{width: '100%', height: '100%'}}>
+            <iframe title='tts' src={`https://erlonl.github.io/tts?data=${outputText}`} style={{width: '100%', height: '100%'}}>
 
             </iframe>
           )}

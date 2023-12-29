@@ -3,6 +3,12 @@
     --background-color: #FAEAD6;
     --title-color: #002A57;
     --text-side-color: white;
+    --props-color: #0B5ED7;
+    --accent-color: #002A57;
+
+    --reverse-text-color: white;
+    --reverse-props-color: #DDF2FD;
+    --reverse-accent-color: white;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -11,6 +17,12 @@
       --background-color: #164863;
       --title-color: #DDF2FD;
       --text-side-color: #427D9D;
+      --props-color: #DDF2FD;
+      --accent-color: white;
+
+      --reverse-text-color: black;
+      --reverse-props-color: #0B5ED7;
+      --reverse-accent-color: #002A57;
     }
   }
   
@@ -90,6 +102,24 @@
     border-radius: 2%;
     width: 100%;
   }
+
+.animated-button {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  margin: 5px;
+  background-color: var(--props-color);
+  color: var(--reverse-text-color);
+  border: 2px solid var(--props-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.animated-button.clicked {
+  transform: scale(0.9);
+  background-color: red;
+}
+
+  
   
   .OutputSide h4{
     color: var(--text-color);
@@ -99,15 +129,9 @@
     color: var(--text-color);
   }
   
-  .OutputSide label{
+  .input-label{
     color: var(--text-color);
   }
-  
-  .InputSide label{
-    color: var(--text-color);
-  }
-  
-
   
   #sentences-textarea {
     width: 50%; 
@@ -119,6 +143,11 @@
   }
   
   #radio-group {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .dropdown-item {
     display: flex;
     align-items: flex-start;
   }
