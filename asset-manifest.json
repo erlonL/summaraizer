@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/summaraizer/static/css/main.0b44e30d.css",
-    "main.js": "/summaraizer/static/js/main.5c0765cc.js",
+    "main.css": "/summaraizer/static/css/main.603e425a.css",
+    "main.js": "/summaraizer/static/js/main.43600ada.js",
     "static/js/787.4ae90deb.chunk.js": "/summaraizer/static/js/787.4ae90deb.chunk.js",
     "static/media/DanielMSousa.png": "/summaraizer/static/media/DanielMSousa.c47c620a072b1e12339c.png",
     "static/media/Eduarda-Donato.png": "/summaraizer/static/media/Eduarda-Donato.eba96f5788681fb50750.png",
@@ -16,12 +16,12 @@
     "static/media/tech_info.md": "/summaraizer/static/media/tech_info.a7e1adb32fc9758aa8c7.md",
     "static/media/user_manual.md": "/summaraizer/static/media/user_manual.c9c31969c523d85b8918.md",
     "static/media/about.md": "/summaraizer/static/media/about.aa39392adc4f4ec863ff.md",
-    "main.0b44e30d.css.map": "/summaraizer/static/css/main.0b44e30d.css.map",
-    "main.5c0765cc.js.map": "/summaraizer/static/js/main.5c0765cc.js.map",
+    "main.603e425a.css.map": "/summaraizer/static/css/main.603e425a.css.map",
+    "main.43600ada.js.map": "/summaraizer/static/js/main.43600ada.js.map",
     "787.4ae90deb.chunk.js.map": "/summaraizer/static/js/787.4ae90deb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b44e30d.css",
-    "static/js/main.5c0765cc.js"
+    "static/css/main.603e425a.css",
+    "static/js/main.43600ada.js"
   ]
 }
