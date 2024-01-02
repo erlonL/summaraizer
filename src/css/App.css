@@ -5,10 +5,16 @@
     --text-side-color: white;
     --props-color: #0B5ED7;
     --accent-color: #002A57;
+    --props-border: black;
+
+    --props-background: #0B5ED7;
+    --props-background-selected: #002A57;
+    --props-border-hover: #B3B3B3;
 
     --reverse-text-color: white;
     --reverse-props-color: #DDF2FD;
     --reverse-accent-color: white;
+    --reverse-props-border: white;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -19,10 +25,16 @@
       --text-side-color: #427D9D;
       --props-color: #DDF2FD;
       --accent-color: white;
+      --props-border: white;
+
+      --props-background: white;
+      --props-background-selected: #DDF2FD;
+
 
       --reverse-text-color: black;
       --reverse-props-color: #0B5ED7;
       --reverse-accent-color: #002A57;
+      --reverse-props-border: black;
     }
   }
   

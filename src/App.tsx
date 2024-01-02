@@ -200,16 +200,16 @@ const App: React.FC = () => {
                 <Button 
                 onClick={handleClearClick}
 
-                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: 'var(--props-color)', color: 'var(--reverse-text-color)', border: '2px solid var(--props-color)', transition: 'all 0.1s ease-in-out'}}
-                onMouseEnter={(e: any) => e.target.style.border = '2px solid var(--reverse-props-color)'}
-                onMouseLeave={(e: any) => e.target.style.border = '2px solid var(--props-color)'}
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: 'var(--props-color)', color: 'var(--reverse-text-color)', border: '2px solid var(--accent-color)', transition: 'all 0.1s ease-in-out'}}
+                onMouseEnter={(e: any) => e.target.style.border = '2px solid var(--props-border-hover)'}
+                onMouseLeave={(e: any) => e.target.style.border = '2px solid var(--accent-color)'}
                 disabled={((isLoading) || (buttonClicked))}>Clear</Button> 
 
                 <Button 
                 onClick={handleSubmitClick} 
-                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: 'var(--props-color)', color: 'var(--reverse-text-color)', border: '2px solid var(--props-color)', transition: 'all 0.1s ease-in-out'}}
-                onMouseEnter={(e: any) => e.target.style.border = '2px solid var(--reverse-props-color)'}
-                onMouseLeave={(e: any) => e.target.style.border = '2px solid var(--props-color)'}
+                style={{width:'100%', height: '50px', fontSize: '20px', margin: '5px', backgroundColor: 'var(--props-color)', color: 'var(--reverse-text-color)', border: '2px solid var(--accent-color)', transition: 'all 0.1s ease-in-out'}}
+                onMouseEnter={(e: any) => e.target.style.border = '2px solid var(--props-border-hover)'}
+                onMouseLeave={(e: any) => e.target.style.border = '2px solid var(--accent-color)'}
                 disabled={((isLoading) || (buttonClicked))}>Submit</Button>
               </div>
               {/* <DocumentArea /> */}

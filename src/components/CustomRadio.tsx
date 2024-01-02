@@ -80,8 +80,9 @@ const CustomRadio = (props: any) => {
         style={{
             ...RadioStyle,
             border: (isHovered && isSelected) ?  '2px solid var(--accent-color)' :
-            (isHovered && !isSelected) ? '2px solid #B3B3B3' :
-            '2px solid var(--accent-color)',
+            (isHovered && !isSelected) ? '2px solid var(--props-border-hover)' :
+            (!isHovered && isSelected) ? '2px solid var(--accent-color)' :
+            '2px solid var(--accent-color)'
 
 
         
