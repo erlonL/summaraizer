@@ -19,13 +19,22 @@ function Home() {
     const isDocumentationSelected = nav === 'documentation' || isDocumentationRoute;
     const isContactSelected = nav === 'contact' || isContactRoute;
 
+    // Listen to nav change and scroll to top
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, [nav]);
+
     
     // const isSummarizAISelected = nav === 'summarizai';
 
   return (
     <>
         <ScrollToTop />
-        <nav className={`nav-wrapper ${isContactRoute ? 'sticky' : ''}`}>
+        <nav className={`nav-wrapper ${((isContactRoute) || (isDocumentationRoute) ) ? 'sticky' : ''}`}>
+        {/* <nav className={`nav-wrapper sticky`}> */}
 
             <div className='title-wrapper'>
                 <Link id='title-link'
