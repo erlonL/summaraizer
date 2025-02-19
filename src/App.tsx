@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import CustomDropdown from './components/CustomDropdown';
 import CustomRadio from './components/CustomRadio';
+
 import './css/App.css';
 
 const App: React.FC = () => {
@@ -74,22 +75,40 @@ const App: React.FC = () => {
       try{
         setIsLoading(true);
         setButtonClicked(true);
-        const response = await fetch('https://issam9-sumy-space.hf.space/api/predict/', {
+        const responseEventID = await fetch('https://erlonl-sumy-space.hf.space/gradio_api/call/predict', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: jsonData
+          body: JSON.stringify(
+            {
+              data: jsonData
+            }
+          )
         });
     
+        if (!responseEventID.ok) {
+          throw new Error('HTTP error, status = ' + responseEventID.status);
+        }
+    
+        const data = await responseEventID.json();
+        
+        // make a get using event id
+        const eventId = data.data[0];
+
+        const response = await fetch(`https://erlonl-sumy-space.hf.space/gradio_api/call/predict/${eventId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
         if (!response.ok) {
           throw new Error('HTTP error, status = ' + response.status);
         }
-    
-        const data = await response.json();
-    
-        return data;
-    
+
+        const result = await response.json();
+        return result;
       }catch(e){
         console.log('Error on server:', e);
         return;
